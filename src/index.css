@@ -15,10 +15,10 @@
 
 @layer components {
   .text-title {
-    @apply text-neutral-300 text-5xl font-semibold font-serif;
+    @apply text-neutral-300 text-5xl font-semibold font-serif sm:text-2xl;
   }
   .text-desc {
-    @apply text-neutral-300 text-lg font-light font-serif;
+    @apply text-neutral-300 text-lg font-light font-serif sm:text-base;
   }
   .outline-button {
     @apply py-2 w-full text-lg font-light text-yellow-400 border-yellow-400 border-2 border-solid rounded-xl hover:text-yellow-200 hover:border-yellow-200 hover:shadow-[0_0_8px_#facc15];
@@ -61,6 +61,13 @@
 
 .modal-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+@media screen and (max-width: 767px) {
+  .needle::before {
+    width: 50%;
+    left: -9%;
+  }
 }
 
 /***

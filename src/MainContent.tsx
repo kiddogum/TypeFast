@@ -86,12 +86,12 @@ const MainContent = () => {
 
   return (
     <>
-      <div className="max-w-max mx-auto mt-20">
-        <div className="relative max-w-[500px] h-[250px] mx-auto">
+      <div className="max-w-max mx-auto mt-20 sm:w-full sm:mx-4 sm:mt-20">
+        <div className="relative max-w-[500px] h-[250px] mx-auto sm:!w-[250px] sm:h-[125px]">
           <SpeedoMeter totalWord={totalWord} />
         </div>
         <div className="relative z-10 w-full bg-slate-800 mx-auto p-3 border-2 border-solid border-slate-700 rounded-xl overflow-x-hidden">
-          <div className="min-w-full flex justify-between whitespace-nowrap">
+          <div className="min-w-full flex justify-between whitespace-nowrap sm:whitespace-normal sm:flex-wrap">
             {wordInput.map((word, i) => (
               <h1
                 key={i}
@@ -129,9 +129,9 @@ const MainContent = () => {
             </button>
           </div>
         </div>
-        <div className="relative z-10 w-full mt-6 flex justify-around">
+        <div className="relative z-10 w-full mt-6 flex justify-around sm:flex-col sm:items-center sm:gap-4 sm:mt-3">
           <p
-            className={`bg-emerald-600 px-4 py-1 text-desc text-emerald-100 border-emerald-400 border-solid rounded-xl ${
+            className={`bg-emerald-600 px-4 py-1 text-desc text-emerald-100 border-emerald-400 border-solid rounded-xl sm:w-max sm:order-2 ${
               isCorrect === "isCorrect"
                 ? `border-emerald-100 shadow-[0_0_8px_#34d399]`
                 : ""
@@ -139,9 +139,9 @@ const MainContent = () => {
           >
             Correct Word: {correct}
           </p>
-          <p className="text-title">{time}</p>
+          <p className="text-title sm:order-1">{time}</p>
           <p
-            className={`bg-red-600 px-4 py-1 text-desc text-red-100 border-red-400 border-solid rounded-xl ${
+            className={`bg-red-600 px-4 py-1 text-desc text-red-100 border-red-400 border-solid rounded-xl sm:w-max sm:order-3 ${
               isCorrect === "isNotCorrect"
                 ? `border-red-200 shadow-[0_0_8px_#f87171]`
                 : ""
@@ -172,7 +172,7 @@ const MainContent = () => {
               },
             }}
           >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-max p-8 backdrop-blur-lg border-slate-400 border-solid border-4 rounded-xl">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-max p-8 backdrop-blur-lg border-slate-400 border-solid border-4 rounded-xl sm:p-4 sm:w-4/5">
               <button
                 className="absolute top-3 right-4 text-2xl font-bold text-neutral-300"
                 onClick={() => setOpenModal((prev) => !prev)}
@@ -181,26 +181,26 @@ const MainContent = () => {
               </button>
               <h1 className="text-title text-center">Time's Up!</h1>
               <hr className="small-divide mt-8" />
-              <div className="flex my-2 mx-4 justify-between ">
+              <div className="flex my-2 mx-4 justify-between sm:mx-1">
                 <p className="text-desc">Total Words:</p>
                 <p className="text-desc">{totalWord}</p>
               </div>
               <hr className="small-divide" />
-              <div className="flex my-2 mx-4 justify-between ">
+              <div className="flex my-2 mx-4 justify-between sm:mx-1">
                 <p className="text-desc">
                   <span className="text-emerald-400">Correct</span> Words:
                 </p>
                 <p className="text-desc">{correct}</p>
               </div>
               <hr className="small-divide" />
-              <div className="flex my-2 mx-4 justify-between ">
+              <div className="flex my-2 mx-4 justify-between sm:mx-1">
                 <p className="text-desc">
                   <span className="text-red-400">Wrong</span> Words:
                 </p>
                 <p className="text-desc">{wrong}</p>
               </div>
               <hr className="small-divide" />
-              <div className="flex my-2 mx-4 justify-between ">
+              <div className="flex my-2 mx-4 justify-between sm:mx-1">
                 <p className="text-desc">Correct %:</p>
                 <p className="text-desc">
                   {Math.round((correct / totalWord) * 100)}%
